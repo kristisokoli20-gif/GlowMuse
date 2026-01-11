@@ -1,88 +1,287 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Make-up</title>
-  
-  <link rel="stylesheet" href="style.css">
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+    list-style: none;
+}
 
-  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+:root {
+    --bg-color: #ffffff;
+    --text-color: #0f172a;
+    --main-color: #6b7280;
+    --other-color: #334155;
+    --big-font: 4.3rem;
+    --h2-font: 2.2rem;
+    --p-font: 1rem;
+}
 
-  <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+body {
+    color: var(--text-color);
+    background: var(--bg-color);
+    overflow-x: hidden;
+}
+header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 17px 11%;
+    background: transparent;
+    transition: all 0.45s ease;
+}
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+.logo img {
+    width: 120px;
+    height: auto;
+}
 
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-</head>
-<body>
-  
-  <header>
-    <a href="#" class="logo"><img src="img/logo.svg" alt="Logo" /></a>
+.navbar {
+    display: flex;
+    align-items: center;
+}
 
-    <ul class="navbar">
-      <li><a href="#home" class="active">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#shop">Shop</a></li>
-      <li><a href="#contacts">Contact</a></li>
-      <li><a href="#account">Account</a></li>
-    </ul>
+.navbar a {
+    font-size: var(--p-font);
+    color: var(--other-color);
+    font-weight: 400;
+    padding: 10px 25px;
+    margin: 0 5px;
+    background: transparent;
+    border-radius: 30px;
+    transition: all 0.45s ease;
+}
 
-    <div class="icons">
-      <a href="#search"><i class="ri-search-line" aria-label="Search"></i></a>
-      <a href="#user"><i class="ri-user-line" aria-label="User"></i></a>
-      <a href="#basket"><i class="ri-shopping-cart-line" aria-label="Cart"></i></a>
-      <div class="bx bx-menu" id="menu-icon" aria-label="Menu"></div>
-    </div>
-  </header>
+.navbar a:hover,
+.navbar a.active {
+    background: #f7f9fb;
+    color: var(--text-color);
+}
 
-  <section class="home" id="home">
-    <div class="home-text">
-      <h4>In this season, find the best</h4>
-      <h1>Exclusive collection for everyone</h1>
-      <a href="#shop" class="btn">Explore now</a>
-    </div>
-  </section>
-  <section class="feature">
-    <div class="middle-text">
-      <h2>Discover more...<span>Good things.</span></h2>
-    </div>
-    <div class="feature-content">
-      <div class="row">
-        <div class="main-row">
-          <div class="row-text">
-            <h6>Explore new arrivals</h6>
-            <h3>Give the gift<br> of choice</h3>
-            <a href="#" class="row-btn">Show me all</a>
-          </div>
-          <div class="row-img">
-            <img src="images.jpg">
-          </div>
-        </div>
-      </div>
-    <div class="row row2">
-<div class="main-row">
-<div class="row-text">
-<h6>Explore new arrivals</h6>
-<h3>Give the gift <br> of choice</h3>
-<a href="#" class="row-btn">Show me all</a>
-</div>
-<div class="row-img">
-<img src="images2.avif">
-</div>
-</div>
-</div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <div class="video-container">
-    <video autoplay muted loop playsinline>
-      <source src="video.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-    <div class="icon">
-      <i class="fas fa-shopping-basket" aria-label="Shop"></i>
-    </div>
-  </div>
-<script type="script.js"></script>
-</body>
-</html>
+.icons {
+    display: flex;
+    align-items: center;
+}
+
+.icons i {
+    height: 50px;
+    width: 50px;
+    background: #f7f9fb;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin-left: 10px;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+#menu-icon {
+    color: var(--other-color);
+    font-size: 33px;
+    z-index: 10001;
+    cursor: pointer;
+    display: none;
+}
+
+
+.home {
+    height: 100vh;
+    width: 100%;
+    background-color: #e3ffe6;
+    background-size: cover;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.home-text h4 {
+    font-size: 1.5rem;
+    color: var(--other-color);
+    margin-bottom: 10px;
+}
+
+.home-text h1 {
+    font-size: var(--big-font);
+    color: var(--text-color);
+    margin-bottom: 20px;
+}
+.btn{
+display: inline-block;
+padding: 16px 30px;
+background: var( -- text-color);
+color: var( -- bg-color);
+font-size: 15px;
+letter-spacing: 1px;
+border-radius: 30px;
+transition: all .45s ease;
+}
+.btn:hover{
+    letter-spacing: 2px;
+    opacity: 0.8;
+}
+header.sticky{
+    background: var(--bg-color);
+    padding: 14px 11%;
+}
+.middle-text h2{
+    font-size: var(--h2-font);
+    color: var(--text-color);
+    font-weight: 600;
+}
+span{
+    color: var(--main-color);
+}
+.feature-content{
+    display: grid;
+grid-template-columns: repeat(auto-fit, minmax(300px, auto));
+gap: 2rem;
+align-items: center;
+margin-top: 5rem;
+}
+.row{
+padding: 40px 30px;
+background: #e3ffe6;
+border-radius: 20px;
+transition: all .45;
+}
+.main-row{
+display: flex;
+flex-wrap: wrap;
+align-items: center;
+justify-content: space-around;
+gap: 2rem;
+}
+.row-img img{
+width: 170px;
+height: auto;
+max-width: 100%;
+}
+.row-text h6{
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--other-color);
+    margin-bottom: 1rem;
+}
+.row-text h3{
+    margin-bottom: 3rem;
+    font-size: 26px;
+    font-weight: 600;
+}
+.row-btn{
+    display: inline-block;
+    padding: 12px 22px;
+    background: var(--bg-color);
+    color: var(--text-color);
+    font-size: 15px;
+    border-radius: 30px;
+    transition: all .45s ease;
+}
+.row-btn:hover{
+    letter-spacing: 1px;
+    color: var(--bg-color);
+    background: var(--text-color);
+}
+.row2{
+background: #fef2f2;
+}
+.row3{
+background: #eff6ff;
+}
+.row:hover {
+  transform: translateY(-5px);
+  cursor: pointer;
+}
+.home-text .btn {
+    padding: 12px 30px;
+    background: var(--main-color);
+    color: #fff;
+    border-radius: 30px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.home-text .btn:hover {
+    background: var(--other-color);
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.video-container video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    transform: translate(-50%, -50%);
+    z-index: 0;
+}
+
+.video-container::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+}
+
+.video-container .icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    color: #fff;
+    font-size: 2rem;
+}
+
+@media (max-width: 1024px) {
+    .home-text h1 {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    #menu-icon {
+        display: block;
+    }
+
+    .navbar {
+        position: fixed;
+        top: 80px;
+        right: -100%;
+        width: 250px;
+        height: calc(100vh - 80px);
+        background: var(--bg-color);
+        flex-direction: column;
+        align-items: center;
+        justify-content: start;
+        transition: 0.4s;
+        padding-top: 20px;
+        box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+    }
+
+    .navbar.active {
+        right: 0;
+    }
+
+    .navbar a {
+        margin: 15px 0;
+        padding: 10px 20px;
+        width: 90%;
+        text-align: center;
+    }
+}
