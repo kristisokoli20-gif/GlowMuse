@@ -1,86 +1,73 @@
-// ===== PRODUCTS DATA =====
-const products = [
-  { id: 1, name: "Rare Beauty by Selena Gomez", description: "Warm Wishes Effortless Cream Bronzer Stick", price: 28.00, image: "rare1.webp" },
-  { id: 2, name: "L'Oreal Paris", description: "Telescopic Original Washable Intense Lengthening Mascara, Black", price: 14.99, image: "image1.jpg" },
-  { id: 3, name: "NARS", description: "Radiant Creamy Concealer with Hydrating Medium Coverage", price: 36.00, image: "image4.jpg" },
-  { id: 4, name: "HUDA BEAUTY", description: "Easy Bake Blurring Loose Baking & Setting Powder", price: 39.00, image: "image5.jpg" },
-  { id: 5, name: "Charlotte Tilbury", description: "Airbrush Flawless Hydrating & Waterproof Setting Spray", price: 38.00, image: "image6.jpg" },
-  { id: 6, name: "Benefit Cosmetics", description: "Cookie and Tickle Shimmer Finish Powder Highlighters", price: 37.05, image: "image7.jpg" },
-  { id: 7, name: "Fit Me® Dewy + Smooth Foundation", description: "Hydrates and smoothes skin texture and protects with SPF 18", price: 11.99, image: "image8.jpg" }
-];
+const addCartButtons = document.querySelectorAll('.add-cart');
+const cartCount = document.querySelector('.cart-item-count');
+const miniCart = document.getElementById('mini-cart');
+const cartItemsList = document.getElementById('cart-items');
+const cartTotal = document.getElementById('cart-total');
+const cartIcon = document.getElementById('cart-icon');
+const closeCartBtn = document.getElementById('close-cart');
+const overlay = document.getElementById('overlay');
 
-// ===== CART STATE =====
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
+let cartCountNumber = 0;
+const cartItems = [];
 
-const cartItemsEl = document.getElementById("cart-items");
-const totalPriceEl = document.getElementById("total-price");
-const cartContainerEl = document.getElementById("cart-container");
-const emptyCartEl = document.getElementById("empty-cart");
-const cartCountEl = document.getElementById("cart-count");
-
-// ===== RENDER CART =====
-function renderCart() {
-  cartItemsEl.innerHTML = "";
-
-  if (cart.length === 0) {
-    cartContainerEl.style.display = "none";
-    emptyCartEl.style.display = "block";
-    cartCountEl.textContent = 0;
-    return;
-  }
-
-  cartContainerEl.style.display = "block";
-  emptyCartEl.style.display = "none";
-
+function renderMiniCart() {
+  cartItemsList.innerHTML = '';
   let total = 0;
-
-  cart.forEach((item, index) => {
-    total += item.price * item.qty;
-
-    const row = document.createElement("div");
-    row.className = "cart-row";
-    row.innerHTML = `
+  cartItems.forEach((item,index)=>{
+    total += parseFloat(item.price);
+    const li = document.createElement('li');
+    li.innerHTML = `
       <div class="cart-item">
-        <img src="${item.image}" alt="${item.name}">
-        <div class="item-info">
-          <h4>${item.name}</h4>
-          <p>${item.description}</p>
-          <span class="price">$${item.price.toFixed(2)}</span>
+        <img src="${item.image}" class="cart-item-img" alt="${item.name}">
+        <div class="cart-item-details">
+          <span class="cart-item-name">${item.name}</span>
+          <span class="cart-item-price">$${item.price}</span>
         </div>
-      </div>
-      <div class="cart-controls">
-        <button class="minus" data-index="${index}">−</button>
-        <span>${item.qty}</span>
-        <button class="plus" data-index="${index}">+</button>
-        <button class="remove" data-index="${index}">✕</button>
+        <button class="remove-item" data-index="${index}">&times;</button>
       </div>
     `;
-    cartItemsEl.appendChild(row);
+    cartItemsList.appendChild(li);
   });
+  cartTotal.innerHTML = `<strong>Total:</strong> $${total.toFixed(2)}`;
 
-  totalPriceEl.textContent = `$${total.toFixed(2)}`;
-  cartCountEl.textContent = cart.reduce((sum, i) => sum + i.qty, 0);
+  cartItemsList.querySelectorAll('.remove-item').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const index = btn.dataset.index;
+      cartItems.splice(index,1);
+      cartCountNumber--;
+      cartCount.textContent = cartCountNumber;
+      renderMiniCart();
+    });
+  });
 }
 
-// ===== CART CONTROLS =====
-cartItemsEl.addEventListener("click", (e) => {
-  const index = e.target.dataset.index;
-  if (index === undefined) return;
+addCartButtons.forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    const name = btn.dataset.name;
+    const price = parseFloat(btn.dataset.price).toFixed(2);
+    const image = btn.dataset.image;
 
-  const idx = Number(index); // convert string to number
+    cartCountNumber++;
+    cartCount.textContent = cartCountNumber;
+    cartItems.push({name,price,image});
+    renderMiniCart();
 
-  if (e.target.classList.contains("plus")) cart[idx].qty++;
-  if (e.target.classList.contains("minus")) cart[idx].qty = Math.max(1, cart[idx].qty - 1);
-  if (e.target.classList.contains("remove")) cart.splice(idx, 1);
-
-  saveCart();
+    miniCart.classList.add('open');
+    overlay.style.display = 'block';
+  });
 });
 
-// ===== SAVE CART =====
-function saveCart() {
-  localStorage.setItem("cart", JSON.stringify(cart));
-  renderCart();
-}
+cartIcon.addEventListener('click', ()=>{
+  miniCart.classList.add('open');
+  overlay.style.display = 'block';
+});
 
-// ===== INIT =====
-document.addEventListener("DOMContentLoaded", renderCart);
+closeCartBtn.addEventListener('click', ()=>{
+  miniCart.classList.remove('open');
+  overlay.style.display = 'none';
+});
+
+overlay.addEventListener('click', ()=>{
+  miniCart.classList.remove('open');
+  overlay.style.display = 'none';
+});
