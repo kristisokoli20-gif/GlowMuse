@@ -1,0 +1,9 @@
+body {
+    color: var(--text-color);
+    background: var(--bg-color);
+    overflow-x: hidden;
+}
+
+span {
+    color: var(--main-color);
+}

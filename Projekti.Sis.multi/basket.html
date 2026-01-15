@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ecommerce Shop</title>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
+  <link rel="stylesheet" href="basket.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <a href="#" class="logo">Products</a>
+    <div id="cart-icon">
+      <i class="ri-shopping-bag-line"></i>
+      <span class="cart-item-count">0</span>
+    </div>
+  </header>
+
+  <!-- Shop Section -->
+  <section class="shop">
+    <h1 class="section-title">Shop Products</h1>
+    <div class="product-content">
+
+      <!-- Product 1 -->
+      <div class="product-box">
+        <div class="img-box">
+          <img src="images/rare1.webp" alt="Rare Beauty by Selena Gomez">
+        </div>
+        <h2 class="product-title">Rare Beauty by Selena Gomez</h2>
+        <span class="price">$28.00</span>
+        <button class="btn add-cart" data-name="Rare Beauty Bronzer" data-price="28" data-image="rare1.webp">Add to Cart</button>
+      </div>
+
+      <!-- Product 2 -->
+      <div class="product-box">
+        <div class="img-box">
+          <img src="images/image1.jpg" alt="L'Oreal Paris Mascara">
+        </div>
+        <h2 class="product-title">L'Oreal Paris Mascara</h2>
+        <span class="price">$14.99</span>
+        <button class="btn add-cart" data-name="L'Oreal Paris Mascara" data-price="14.99" data-image="image1.jpg">Add to Cart</button>
+      </div>
+
+      <!-- Product 3 -->
+      <div class="product-box">
+        <div class="img-box">
+          <img src="images/image4.jpg" alt="NARS Radiant Concealer">
+        </div>
+        <h2 class="product-title">NARS Radiant Concealer</h2>
+        <span class="price">$36.00</span>
+        <button class="btn add-cart" data-name="NARS Radiant Concealer" data-price="36" data-image="image4.jpg">Add to Cart</button>
+      </div>
+
+      <!-- Product 4 -->
+      <div class="product-box">
+        <div class="img-box">
+          <img src="images/image5.jpg" alt="HUDA BEAUTY Loose Powder">
+        </div>
+        <h2 class="product-title">HUDA BEAUTY Loose Powder</h2>
+        <span class="price">$39.00</span>
+        <button class="btn add-cart" data-name="HUDA BEAUTY Loose Powder" data-price="39" data-image="image5.jpg">Add to Cart</button>
+      </div>
+
+      <!-- Product 5 -->
+      <div class="product-box">
+        <div class="img-box">
+          <img src="images/image8.jpg" alt="Charlotte Tilbury Spray">
+        </div>
+        <h2 class="product-title">Charlotte Tilbury Spray</h2>
+        <span class="price">$38.00</span>
+        <button class="btn add-cart" data-name="Charlotte Tilbury Spray" data-price="38" data-image="image6.jpg">Add to Cart</button>
+      </div>
+
+      <!-- Product 6 -->
+      <div class="product-box">
+        <div class="img-box">
+          <img src="images/image7.jpg" alt="Benefit Cosmetics Highlighter">
+        </div>
+        <h2 class="product-title">Benefit Cosmetics Highlighter</h2>
+        <span class="price">$37.05</span>
+        <button class="btn add-cart" data-name="Benefit Cosmetics Highlighter" data-price="37.05" data-image="image7.jpg">Add to Cart</button>
+      </div>
+
+      <!-- Product 7 -->
+      <div class="product-box">
+        <div class="img-box">
+          <img src="images/images3.jpg" alt="KIKO Milano Coloured Lip Balm">
+        </div>
+        <h2 class="product-title">KIKO Milano Coloured Lip Balm</h2>
+        <span class="price">$6.99</span>
+        <button class="btn add-cart" data-name="KIKO Milano Coloured Lip Balm" data-price="6.99" data-image="images3.jpg">Add to Cart</button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Mini Cart -->
+  <div id="mini-cart">
+    <button id="close-cart">&times;</button>
+    <h3>Your Cart</h3>
+    <ul id="cart-items"></ul>
+    <p id="cart-total"><strong>Total:</strong> $0.00</p>
+  </div>
+
+  <!-- Overlay -->
+  <div id="overlay"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>

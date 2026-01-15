@@ -1,0 +1,24 @@
+header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    z-index: 1001;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 11px 1%;
+    background: transparent;
+    transition: all 0.45s ease;
+}
+
+header.sticky {
+    background: var(--bg-color);
+    padding: 14px 11%;
+}
+
+.logo img {
+    width: 120px;
+    height: auto;
+}
+
