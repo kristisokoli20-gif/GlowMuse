@@ -1,45 +1,62 @@
 .contact {
     padding: 50px 11% 40px;
+    background: #f9f9f9; /* optional: subtle footer background */
+    box-sizing: border-box;
 }
 
 .main-contact {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, auto));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
-    align-items: center;
+    align-items: start; /* ensures all columns start at top */
+}
+
+.contact-content {
+    display: flex;
+    flex-direction: column; /* make heading + links stacked */
 }
 
 .contact-content h5 {
     font-size: 1.1rem;
     margin-bottom: 20px;
+    color: #111;
 }
 
+/* Ensure list takes full width */
 .contact-content ul {
     padding: 0;
     margin: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column; /* stack links vertically */
+    width: 100%;
 }
 
 .contact-content li {
     margin-bottom: 12px;
+    width: 100%;
 }
 
 .contact-content li a {
     display: block; 
+    width: 100%;
     font-size: 15px;
     color: #374151;
     font-weight: 400;
-    transition: all 0.45s ease;
+    transition: all 0.35s ease;
+    text-decoration: none;
 }
 
 .contact-content li a:hover {
-    color: var(--text-color);
+    color: var(--text-color, #7b5cff);
     transform: translateX(-5px);
 }
 
 .end-text p {
     text-align: center;
-    padding: 20px;
+    padding: 20px 0;
     font-size: 14px;
     letter-spacing: 1px;
-    color: var(--other-color);
+    color: var(--other-color, #888);
 }
+

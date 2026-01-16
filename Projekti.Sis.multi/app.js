@@ -18,7 +18,7 @@ function renderMiniCart() {
     const li = document.createElement('li');
     li.innerHTML = `
       <div class="cart-item">
-<img src="images/${item.image}" class="cart-item-img" alt="${item.name}">
+        <img src="images/${item.image}" class="cart-item-img" alt="${item.name}">
         <div class="cart-item-details">
           <span class="cart-item-name">${item.name}</span>
           <span class="cart-item-price">$${item.price}</span>

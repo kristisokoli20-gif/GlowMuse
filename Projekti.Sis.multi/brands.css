@@ -1,0 +1,64 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+}
+
+.brands-section {
+  padding: 40px 20px;
+  background-color: #fff;
+  text-align: center;
+}
+
+.brands-section h2 {
+  font-size: 32px;
+  margin-bottom: 30px;
+  position: relative;
+  display: inline-block;
+  background: linear-gradient(90deg, #ff0080, #7928ca);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.brands-section h2::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 3px;
+  background: #ff0080;
+  left: 0;
+  bottom: -5px;
+  transition: width 0.4s ease;
+}
+
+.brands-section h2:hover::after {
+  width: 100%;
+}
+
+
+/* Swiper styles */
+.swiper {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 0;
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  height: 120px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+  filter: grayscale(100%);
+  transition: all 0.4s ease;
+}
+
+.swiper-slide img:hover {
+  transform: scale(1.2);
+  filter:drop-shadow(0 4px 6px rgba(0,0,0,0.3));
+}

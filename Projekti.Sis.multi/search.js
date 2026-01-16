@@ -9,6 +9,7 @@ const products = [
   { id: 7, name: "Fit Me® Dewy + Smooth Foundation", description: "Hydrates and smoothes skin texture and protects with SPF 18", price: 11.99, image: "images/image8.jpg" }
 ];
 
+
 const searchBox = document.getElementById('searchBox');
 const results = document.getElementById('results');
 

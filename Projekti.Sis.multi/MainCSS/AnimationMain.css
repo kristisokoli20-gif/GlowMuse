@@ -1,0 +1,79 @@
+/* ================= BRAND SHOWCASE ================= */
+.brand-showcase {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background: #000; /* fallback – shumë e rëndësishme */
+}
+
+
+
+.brand-slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  animation: brandSlider 24s infinite;
+  animation-fill-mode: both;
+}
+
+
+
+/* BACKGROUNDS */
+
+
+  .slide1 {
+  background-image: url("../images/ervisa1.jpg");
+  animation-delay: 0s;
+}
+
+.slide2 {
+  background-image: url("../images/ervisa2.jpeg");
+  animation-delay: 1s;
+}
+
+.slide3 {
+  background-image: url("../images/ervisa3.jpeg");
+  animation-delay: 6s;
+}
+
+.slide4 {
+  background-image: url("../images/ervisa4.jpeg");
+  animation-delay: 12s;
+}
+
+
+/* CONTENT */
+.brand-content {
+  position: absolute;
+  bottom: 15%;
+  left: 10%;
+  max-width: 500px;
+  background: rgba(255, 255, 255, 0.85);
+  padding: 30px;
+  border-radius: 12px;
+}
+
+.brand-content h2 {
+  font-size: 40px;
+  color: #c94f7c;
+  margin-bottom: 10px;
+}
+
+.brand-content p {
+  font-size: 18px;
+  color: #333;
+  line-height: 1.5;
+}
+
+/* ================= ANIMATION ================= */
+
+@keyframes brandSlider {
+  0%   { opacity: 0; }
+  10%  { opacity: 1; }
+  30%  { opacity: 1; }
+  40%  { opacity: 0; }
+  100% { opacity: 0; }
+}

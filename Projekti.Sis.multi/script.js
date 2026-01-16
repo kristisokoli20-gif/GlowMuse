@@ -4,14 +4,13 @@ window.addEventListener("scroll", () => {
     header.classList.toggle("sticky", window.scrollY > 0);
 });
 
-// Mobile menu
-let menuIcon = document.getElementById('menu-icon');
-let navbar = document.querySelector('.navbar');
+const menuIcon = document.getElementById("menu-icon");
+const menu = document.querySelector(".menu");
 
 menuIcon.onclick = () => {
-    navbar.classList.toggle('active');
-    menuIcon.classList.toggle('bx-x');
-}
+  menu.classList.toggle("active");
+};
+
 
 window.onscroll = () => {
     menuIcon.classList.remove('bx-x');
